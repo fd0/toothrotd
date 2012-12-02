@@ -21,6 +21,7 @@ Compile the code by calling `make`:
 
     $ make
     cc -g -Wall -std=gnu99 -O2   -c -o toothrotd.o toothrotd.c
+    cc -lpcap  toothrotd.o version.h   -o toothrotd
 
 
 Trivia

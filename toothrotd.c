@@ -33,6 +33,7 @@
 #include <err.h>
 #include <stdint.h>
 #include <syslog.h>
+#include <string.h>
 #include <pcap/pcap.h>
 
 #include "version.h"
@@ -71,7 +72,7 @@ typedef struct {
     uint16_t checksum;
     uint8_t src[4];
     uint8_t dst[4];
-} eth_hdr_ip4_t __attribute__ ((__packed__));
+} eth_hdr_ip4_t;
 
 /* global options */
 typedef struct {
@@ -214,7 +215,7 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-        eth_hdr_ip4_t *ip_packet = packet;
+        eth_hdr_ip4_t *ip_packet = (eth_hdr_ip4_t *)packet;
         char line[1000];
 
         snprintf(line, sizeof(line),
