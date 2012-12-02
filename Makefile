@@ -22,10 +22,12 @@ OBJECTS=$(patsubst %.c,%.o,$(FILES))
 
 all: $(MAIN)
 
-$(MAIN): $(OBJECTS) version.h
+$(MAIN): $(OBJECTS)
+
+toothrotd.o: version.h
 
 version.h:
 	@echo "#define VERSION \"$(shell git describe)\"" > version.h
 
 clean:
-	rm -f $(MAIN) *.o
+	rm -f $(MAIN) *.o version.h
