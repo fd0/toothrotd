@@ -34,6 +34,7 @@
 #include <stdint.h>
 #include <syslog.h>
 #include <string.h>
+#include <signal.h>
 #include <pcap/pcap.h>
 
 #include "version.h"
@@ -103,6 +104,11 @@ static void print_help(FILE *output) {
                     "  -h    --help         print this help\n");
 }
 
+static void exit_handler(int sig) {
+    LOG(0, "signal %d received, exiting\n", sig);
+    exit(0);
+}
+
 int main(int argc, char *argv[]) {
     const struct option longopts[] = {
         {"help", no_argument, 0, 'h'},
@@ -151,6 +157,11 @@ int main(int argc, char *argv[]) {
 
     /* initialize syslog */
     openlog("toothrotd", LOG_PID, LOG_USER);
+
+    /* trap sigint and sigterm */
+    signal(SIGQUIT, exit_handler);
+    signal(SIGINT, exit_handler);
+    signal(SIGTERM, exit_handler);
 
     LOG(1, "listening on interface \"%s\" with filter \"%s\"\n", opts.interface, opts.filter);
 
