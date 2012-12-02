@@ -23,3 +23,7 @@ Compile the code by calling `make`:
     cc -g -Wall -std=gnu99 -O2   -c -o toothrotd.o toothrotd.c
 
 
+Trivia
+======
+
+The name `toothrotd` is inspired by the characte Herman Toothrot from the game "Monke Island".
