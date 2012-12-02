@@ -27,4 +27,4 @@ Compile the code by calling `make`:
 Trivia
 ======
 
-The name `toothrotd` is inspired by the characte Herman Toothrot from the game "Monke Island".
+The name `toothrotd` is inspired by the character Herman Toothrot from the game "Monke Island".
