@@ -13,7 +13,7 @@ ifeq ($(DEBUG),1)
 	CFLAGS += -DDEBUG
 endif
 
-MAIN=toothrot
+MAIN=toothrotd
 FILES=$(wildcard *.c)
 HEADERS=$(wildcard *.h)
 OBJECTS=$(patsubst %.c,%.o,$(FILES))
