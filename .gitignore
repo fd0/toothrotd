@@ -1,6 +1,6 @@
 *.swp
 *.swo
 *.o
-/toothrot
+/toothrotd
 /config.mk
 /version.h
