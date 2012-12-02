@@ -85,13 +85,14 @@ typedef struct {
 
 options_t opts;
 
-const char* default_filter = "ip4 and igmp and igmp[0] = 0x11 and not src 137.226.144.1";
-const char* default_interface = "eth0";
+#define DEFAULT_FILTER "ip and igmp and igmp[0] = 0x11 and not src 137.226.144.1"
+#define DEFAULT_INTERFACE "eth0"
 
 static void print_help(FILE *output) {
     fprintf(output, "USAGE: toothrotd [OPTIONS]\n"
                     "  -i    --interface    set listen interface\n"
                     "  -f    --filter       set filter expression\n"
+                    "                       (default: " DEFAULT_FILTER ")\n"
                     "  -p    --no-promisc   disable promiscuous mode\n"
                     "                       (default: on)\n"
                     "  -s    --snaplen      set snaplen in byte\n"
@@ -114,8 +115,8 @@ int main(int argc, char *argv[]) {
 
     /* init options */
     opts.promisc = true;
-    opts.interface = default_interface;
-    opts.filter = default_filter;
+    opts.interface = DEFAULT_INTERFACE;
+    opts.filter = DEFAULT_FILTER;
     opts.snap = 100;
 
     /* parse options */
