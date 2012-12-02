@@ -22,7 +22,7 @@ OBJECTS=$(patsubst %.c,%.o,$(FILES))
 
 all: $(MAIN)
 
-$(MAIN): $(OBJECTS)
+$(MAIN): $(OBJECTS) version.h
 
 version.h:
 	@echo "#define VERSION \"$(shell git describe)\"" > version.h
