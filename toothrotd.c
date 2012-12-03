@@ -50,6 +50,10 @@
 #define ETH_TYPE_IP4 0x0008
 #endif
 
+#ifndef PCAP_NETMASK_UNKNOWN
+#define PCAP_NETMASK_UNKNOWN   0xffffffff
+#endif
+
 /* define macros for verbose output */
 #define LOG(level, format, args...) { \
         if (opts.verbose >= level) printf(format, ## args); \
