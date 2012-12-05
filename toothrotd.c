@@ -234,7 +234,8 @@ int main(int argc, char *argv[]) {
         char line[1000];
 
         snprintf(line, sizeof(line),
-            "rogue packet received: %02x:%02x:%02x:%02x:%02x:%02x -> %02x:%02x:%02x:%02x:%02x:%02x",
+            "rogue packet on %s received: %02x:%02x:%02x:%02x:%02x:%02x -> %02x:%02x:%02x:%02x:%02x:%02x",
+            opts.interface,
             ip_packet->src_mac[0],
             ip_packet->src_mac[1],
             ip_packet->src_mac[2],
